@@ -1,0 +1,22 @@
+{
+  "name": "hrms",
+  "version": "1.0.0",
+  "description": "hrms websocket for backend ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhiramNS1/server.git"
+  },
+  "author": "abhiram",
+  "license": "ISC",
+  "homepage": "https://github.com/AbhiramNS1/server#readme",
+  "devDependencies": {
+    "cors": "^2.8.5"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
