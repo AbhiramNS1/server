@@ -35,8 +35,6 @@ app.use(express.urlencoded({extended:true}))
 // });
 // console.log("The WebSocket server is running on port 8080");
 
-
-console.log("------------------ ");
 app.use(express.json())
 
 app.get("/app",(req,res)=>{
