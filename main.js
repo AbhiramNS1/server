@@ -66,4 +66,4 @@ app.post("/ss",(req,res)=>{
         }
     }
 })
-app.listen(80,()=>console.log("Express server stared at port 1234"))
+app.listen(80,()=>console.log("Express server stared at port 80"))
