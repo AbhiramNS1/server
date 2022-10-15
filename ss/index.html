@@ -7,8 +7,79 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        hello world
-    </h1>
+    <div class="parent">
+        <div class="heading"> Taking Screenshot</div>
+        <div>
+            Loading....
+        </div>
+        <div>
+
+        </div>
+        <div class="button">
+            OK
+        </div>
+    </div>
+    
 </body>
+
+<script>
+    const cover=document.createElement('div')
+    cover.classList.add('cover')
+    document.body.append(cover)
+    const popup=document.createElement('div')
+    popup.classList.add('popuproot')
+    cover.append(popup)
+    document.body.removeChild('cover')
+
+</script>
+<style>
+    .parent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .heading{
+        font-size: xx-large;
+        font-weight: 900;
+        padding: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .popuproot{
+        background-color: white;
+        border-radius: 3%;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.81);
+    }
+    .cover{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top:0px;
+        left:0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.581);
+    }
+    .button{
+    width: max-content;
+    background-color: rgba(208, 0, 255, 0.689);
+    appearance: button;
+    text-align: center;
+    border-radius:10px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding:10px 30px;margin:5px;
+    transition: 250ms;
+    color: rgb(195, 255, 0);
+    user-select: none;
+    box-shadow: 0px 0px 2px  black;
+    }
+    .button:hover{
+        box-shadow: 0px 0px 5px  black;
+        cursor: pointer;
+    }
+    
+</style>
 </html>

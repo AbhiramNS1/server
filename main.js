@@ -51,8 +51,10 @@ app.use(express.static("ss"))
 app.post("/ss",(req,res)=>{
     const id=req.body.id
     console.log(req.body)
+    var clientConnected=false
     for(var client of wss.clients){
         if(client.id==id){
+            clientConnected=true
             new Promise((resolve,reject)=>{
                     client.recived=resolve
                     client.failed=reject
@@ -65,6 +67,7 @@ app.post("/ss",(req,res)=>{
             break
         }
     }
+    if(!clientConnected) res.json({status:false,not_online:true})
 })
 app.get("/",(req,res)=>{
     res.send("<h1>Hello world</h1>")
