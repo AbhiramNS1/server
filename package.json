@@ -14,9 +14,12 @@
   "license": "ISC",
   "homepage": "https://github.com/AbhiramNS1/server#readme",
   "devDependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "screenshot-desktop": "^1.12.7"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "websocket": "^1.0.34",
+    "ws": "^8.9.0"
   }
 }
