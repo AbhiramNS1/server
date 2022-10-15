@@ -6,16 +6,16 @@ const wss = new WebSocketServer.Server({ port: 8080 })
 wss.on("connection", ws => {
     
     console.log(`All clients`);
-    wss.clients.forEach(e=>console.log(e.id))
+    wss.clients.forEach(e=>console.log(e.token))
     ws.on("message", data => {
         if(!ws.auth){
-              ws.id= JSON.parse(data).id
-              console.log(`Client with id: ${ws.id}`)
+              ws.token= JSON.parse(data).token
+              console.log(`Client with token: ${ws.token}`)
               ws.auth=true
         }
         else {
-            console.log(`data recived from ${ws.id}`)
-            ws.file=`ss${ws.id}${Date.now()}.png`
+            console.log(`data recived from ${ws.token}`)
+            ws.file=`ss${ws.token}${Date.now()}.png`
             fs.writeFile(`./ss/${ws.file}`,data,(err)=>{
                 if(err) ws.failed()
                 else ws.recived()
