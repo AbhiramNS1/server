@@ -15,8 +15,8 @@ wss.on("connection", ws => {
         }
         else {
             console.log(`data recived from ${ws.id}`)
-
-            fs.writeFile(`./ss/ss${ws.id}.png`,data,(err)=>{
+            ws.file=`ss${ws.id}${Date.now()}.png`
+            fs.writeFile(`./ss/${ws.file}`,data,(err)=>{
                 if(err) ws.failed()
                 else ws.recived()
             })
@@ -58,7 +58,7 @@ app.post("/ss",(req,res)=>{
                     client.failed=reject
                     client.send("ss")
             }).then(r=>{
-                res.json({status:true,id:client.id})
+                res.json({status:true,file:`${client.file}`})
             }).catch(err=>{
                 res.json({status:false})
             })
