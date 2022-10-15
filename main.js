@@ -66,4 +66,7 @@ app.post("/ss",(req,res)=>{
         }
     }
 })
+app.get("/",(req,res)=>{
+    res.send("<h1>Hello world</h1>")
+})
 app.listen(80,()=>console.log("Express server stared at port 80"))
