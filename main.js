@@ -49,7 +49,7 @@ app.use(express.static("ss"))
 
 
 app.post("/ss",(req,res)=>{
-    const id=req.body.token
+    const token=req.body.token
     console.log(req.body)
     var clientConnected=false
     for(var client of wss.clients){
