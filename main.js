@@ -32,7 +32,7 @@ wss.on("connection", ws => {
                 }
                 }).then(res=>{
                     if(res.data.status)
-                        setInterval(()=>fs.unlink(`./ss/${ws.file}`),30000)
+                        setInterval(()=>fs.unlink(`./ss/${ws.file}`,()=>{}),30000)
                     console.log(res.data)
                 })
             })
