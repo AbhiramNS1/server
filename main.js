@@ -1,6 +1,7 @@
 const WebSocketServer = require('ws');
 const fs=require('fs')
-
+const axios = require('axios')
+const FormData = require('form-data')
 const wss = new WebSocketServer.Server({ port: 8080 })
 
 wss.on("connection", ws => {
@@ -12,6 +13,7 @@ wss.on("connection", ws => {
               ws.token= JSON.parse(data).token
               console.log(`Client with token: ${ws.token}`)
               ws.auth=true
+              
         }
         else {
             console.log(`data recived from ${ws.token}`)
@@ -19,6 +21,20 @@ wss.on("connection", ws => {
             fs.writeFile(`./ss/${ws.file}`,data,(err)=>{
                 if(err) ws.failed()
                 else ws.recived()
+                const fd=new FormData()
+                fd.append('token',ws.token)
+                fd.append('screnshotfile',fs.createReadStream(`./ss/${ws.file}`))
+                // fd.append('taken',)
+                axios.post('https://hrms.techtok4u.com/screenshot/store.php',fd,
+                {
+                    headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+                }).then(res=>{
+                    if(res.data.status)
+                        setInterval(()=>fs.unlink(`./ss/${ws.file}`),30000)
+                    console.log(res.data)
+                })
             })
 
         }
@@ -38,7 +54,8 @@ console.log("The WebSocket server is running on port 8080");
 //---------------  server to get the requests
 
 const express = require("express")
-const cors = require('cors')
+const cors = require('cors');
+const { setFlagsFromString } = require('v8');
 
 const app = express()
 
@@ -69,7 +86,5 @@ app.post("/ss",(req,res)=>{
     }
     if(!clientConnected) res.json({status:false,not_online:true})
 })
-app.get("/",(req,res)=>{
-    res.send("<h1>Hello world</h1>")
-})
+
 app.listen(1333,()=>console.log("Express server stared at port 1333"))
