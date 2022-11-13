@@ -35,7 +35,7 @@ console.log("The WebSocket server is running on port 8080");
 
 
 
-//--------------------  server to get the requests
+//---------------  server to get the requests
 
 const express = require("express")
 const cors = require('cors')
@@ -72,4 +72,4 @@ app.post("/ss",(req,res)=>{
 app.get("/",(req,res)=>{
     res.send("<h1>Hello world</h1>")
 })
-app.listen(80,()=>console.log("Express server stared at port 80"))
+app.listen(1333,()=>console.log("Express server stared at port 1333"))
