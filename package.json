@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "ai",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhiramNS1/server.git"
+  },
+  "author": "abhiram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbhiramNS1/server/issues"
+  },
+  "homepage": "https://github.com/AbhiramNS1/server#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
